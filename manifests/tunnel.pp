@@ -25,8 +25,6 @@ define wireguard::tunnel (
   ]] $peers = {},
 ) {
 
-  include wireguard::packages
-
   $peers.each |$key, $value| {
     if($value['public_key'] == undef) {
       fail('public key is mandatory for each peer')
