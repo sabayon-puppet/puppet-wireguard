@@ -48,10 +48,10 @@ define wireguard::tunnel (
         }
       },
     }),
-    notify  => Service["wireguard@${title}.service"],
+    notify  => Service["wg-quick@${title}.service"],
   }
 
-  service { "wireguard@${title}.service":
+  service { "wg-quick@${title}.service":
     ensure  => if $ensure { 'running' } else { 'stopped' },
     enable  => if $ensure { true } else { false },
     require => File["/etc/wireguard/${title}.conf"],
