@@ -12,7 +12,7 @@
 
 define wireguard::tunnel (
   String  $private_key,
-  Integer $listen_port,
+  Optional[Integer] $listen_port,
   Optional[String]  $address,
   Enum['present','absent'] $ensure = 'present',
   Hash[String, Struct[

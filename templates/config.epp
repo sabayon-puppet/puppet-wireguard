@@ -1,5 +1,5 @@
 <%- | String $private_key,
-      Integer $listen_port,
+      Optional[Integer] $listen_port,
       Optional[String] $address,
       Array[Struct[
         {
@@ -14,7 +14,9 @@
 
 [Interface]
 PrivateKey = <%= $private_key %>
+<% if $listen_port { -%>
 ListenPort = <%= $listen_port %>
+<% } -%>
 <% if $address { -%>
 Address    = <%= $address %>
 <% } -%>
