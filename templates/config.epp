@@ -1,6 +1,7 @@
 <%- | String $private_key,
       Optional[Integer] $listen_port,
       Optional[String] $address,
+      Optional[String] $dns,
       Array[Struct[
         {
           public_key => String,
@@ -19,6 +20,9 @@ ListenPort = <%= $listen_port %>
 <% } -%>
 <% if $address { -%>
 Address    = <%= $address %>
+<% } -%>
+<% if $dns { -%>
+DNS    = <%= $dns %>
 <% } -%>
 
 <% $peers.each |$peer| { -%>

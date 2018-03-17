@@ -14,6 +14,7 @@ define wireguard::tunnel (
   String  $private_key,
   Optional[Integer] $listen_port,
   Optional[String]  $address,
+  Optional[String]  $dns,
   Enum['present','absent'] $ensure = 'present',
   Hash[String, Struct[
     {
@@ -38,6 +39,7 @@ define wireguard::tunnel (
       private_key => $private_key,
       listen_port => $listen_port,
       address     => $address,
+      dns     => $dns,
       peers       => $peers.map |$key, $value| {
         {
           'public_key'           => $value['public_key'],
